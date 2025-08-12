@@ -1,5 +1,8 @@
 <template>
   <div class="search-page">
+    <button class="back-btn" @click="backHome">
+          <span class="material-icons"><img src="/src/assets/leftarrow.svg" alt="back"/></span>
+        </button>
     <SearchBar v-model="q" @search="onSearch" />
     <ul>
       <li v-for="c in store.searchResults" :key="c.lat + c.lon" @click="select(c)">
@@ -28,6 +31,9 @@ function select(c:any) {
   // store.addSavedCity(c);
   router.push({ name: 'Detail', query: { lat: c.lat, lon: c.lon , state : c.name , country : c.country , opp : 0} });
 }
+function backHome(){
+  router.push({ path: '/' });
+}
 </script>
 
 <style scoped>
@@ -41,4 +47,12 @@ span{
 }
 .name{ font-weight:700; }
 .country{ color:#6b7280; }
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
 </style>

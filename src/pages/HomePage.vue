@@ -56,16 +56,29 @@ import type { Weather } from '../types/weather';
 const store = useWeatherStore();
 const router = useRouter();
 
+function success(p: GeolocationPosition) {
+  store.fetchWeatherByCoords(p.coords.latitude, p.coords.longitude);
+}
+
 onMounted(() => {
   store.loadSaved();
-  // get geolocation and fetch current weather
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(p => {
-      store.fetchWeatherByCoords(p.coords.latitude, p.coords.longitude);
-    }, () => {
-      // fallback: fetch a default city if user denies
+  if (navigator.permissions) {
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      if (result.state === "granted") {
+        navigator.geolocation.getCurrentPosition(success);
+      } else {
+        console.log("Need user gesture for location access");
+      }
     });
   }
+  // get geolocation and fetch current weather
+  // if (navigator.geolocation) {
+  //   navigator.geolocation.getCurrentPosition(p => {
+  //     store.fetchWeatherByCoords(p.coords.latitude, p.coords.longitude);
+  //   }, () => {
+  //     // fallback: fetch a default city if user denies
+  //   });
+  // }
 });
 
 const formatUnixTimestampTo12HrTime: (utcSeconds: number, timezoneOffset: number) => string = 

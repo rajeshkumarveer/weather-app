@@ -1,6 +1,6 @@
 <template>
   <div class="weather-card" @click="$emit('open')" :class="isDay ? 'weather-card-lightbg' : 'weather-card-darkbg'">
-    <div class="weather-card-inner">
+    <div class="weather-card-inner" style="padding-bottom: 6px;">
           <div class="left">
             <div class="title">{{ title }}</div>
             <div class="time">{{ subtitle }}</div>
@@ -56,11 +56,11 @@ defineProps<Props>();
 
 }
 .weather-card-inner{
-  display:flex; justify-content:space-between; 
+  display:flex; justify-content:space-between;
 }
 .left{ max-width:65%; }
 .title{ font-size:28px; font-weight:800; }
-.time{ font-size:14px; opacity:.85; margin-top:0px; }
+.time{ font-size:14px; opacity:.85; margin-top: 4px; }
 .desc{ margin-top:0px; font-size:16px; }
 .right{ text-align:right; }
 .temp{ font-size:53px; font-weight:500; position: relative; top: -8px;  }
