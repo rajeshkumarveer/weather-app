@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"> 
 import { ref, watch } from 'vue';
 import SearchBar from '../components/molecules/SearchBar.vue';
 import { useWeatherStore } from '../store/weatherStore';
