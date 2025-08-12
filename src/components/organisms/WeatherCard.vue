@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+// import { computed } from 'vue';
 interface Props {
   title: string;
   subtitle: string;
@@ -33,7 +33,7 @@ interface Props {
   isDay: boolean
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 </script>
 
 <style scoped lang="scss">

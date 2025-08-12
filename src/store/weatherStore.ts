@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import { geocodeCity, getCurrentWeatherByCoords, getForecast } from '../services/weatherApi';
+import { geocodeCity, getCurrentWeatherByCoords } from '../services/weatherApi';
 import type { CityGeo, Weather } from '../types/weather';
 
 export const useWeatherStore = defineStore('weather', () => {

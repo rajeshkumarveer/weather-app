@@ -1,6 +1,6 @@
 <template><button class="btn" :class="variant"><slot/></button></template>
 <script setup lang="ts">
-const props = defineProps<{ variant?: 'primary' | 'ghost' }>();
+defineProps<{ variant?: 'primary' | 'ghost' }>();
 </script>
 <style scoped>
 .btn{ padding:14px 20px; border-radius:12px; font-weight:700; }

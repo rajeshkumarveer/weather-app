@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts"> 
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import SearchBar from '../components/molecules/SearchBar.vue';
 import { useWeatherStore } from '../store/weatherStore';
 import { useRouter, useRoute } from 'vue-router';
